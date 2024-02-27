@@ -3,7 +3,7 @@ import { BsFillPersonFill } from 'react-icons/bs';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { BsFillPersonDashFill } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/operations';
+import { deleteContact } from '../../redux/contacts/operations';
 
 const Contact = ({ item }) => {
   const { id, name, phone } = item;

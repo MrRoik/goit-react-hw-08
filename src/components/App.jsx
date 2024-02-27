@@ -6,10 +6,10 @@ import ContactForm from './ContactForm/ContactForm';
 import TitlePhonebook from './Title/Title';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { selectIsError, selectIsLoading } from '../redux/selectors';
+import { selectIsError, selectIsLoading } from '../redux/contacts/selectors';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
 import Loader from './Loader/Loader';
-import { fetchContacts } from '../redux/operations';
+import { fetchContacts } from '../redux/contacts/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
