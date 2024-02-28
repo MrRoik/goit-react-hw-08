@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
 
 const Contact = ({ item }) => {
-  const { id, name, phone } = item;
+  const { id, name, number } = item;
   const dispatch = useDispatch();
   const handleDel = () => dispatch(deleteContact(id));
 
@@ -18,7 +18,7 @@ const Contact = ({ item }) => {
           {name}
         </p>
         <p className={css.descList}>
-          <BsFillTelephoneFill className={css.iconContactList} size="18" /> {phone}
+          <BsFillTelephoneFill className={css.iconContactList} size="18" /> {number}
         </p>
       </div>
       <button className={css.button} type="button" onClick={handleDel}>
