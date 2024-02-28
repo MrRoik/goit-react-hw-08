@@ -1,4 +1,4 @@
-import css from '../components/App.module.css';
+import css from './Pages.module.css';
 
 import { ErrorMessage } from 'formik';
 import ContactForm from '../components/ContactForm/ContactForm';
@@ -11,7 +11,7 @@ import { fetchContacts } from '../redux/contacts/operations';
 import { useEffect } from 'react';
 import { selectIsError, selectIsLoading } from '../redux/contacts/selectors';
 
-export const Contacts = () => {
+const Contacts = () => {
   const dispatch = useDispatch();
   const loader = useSelector(selectIsLoading);
   const error = useSelector(selectIsError);
@@ -21,7 +21,7 @@ export const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <div className={css.container}>
+    <div className={css.containerContacts}>
       <TitlePhonebook />
       <ContactForm />
       <SearchBox />
@@ -31,3 +31,5 @@ export const Contacts = () => {
     </div>
   );
 };
+
+export default Contacts;

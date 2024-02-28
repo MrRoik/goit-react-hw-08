@@ -1,12 +1,10 @@
-import { Helmet } from 'react-helmet';
-import { RegisterForm } from '../components/RegisterForm/RegisterForm';
+import css from './Pages.module.css';
+import RegisterForm from '../components/RegisterForm/RegisterForm';
 
 export default function Register() {
   return (
-    <div>
-      <Helmet>
-        <title>Registration</title>
-      </Helmet>
+    <div className={css.containerAuth}>
+      <h2 className={css.titleAuth}>Registration</h2>
       <RegisterForm />
     </div>
   );

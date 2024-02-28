@@ -10,7 +10,7 @@
 
 .listCard {
     display: flex;
-    width: 230px;
+    width: 300px;
     justify-content: space-between;
     align-items: center;
     border-radius: 5px;
@@ -22,8 +22,8 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
+    .listCard {
+        width: 250px;
     }
 
 }

@@ -1,7 +1,9 @@
 .header {
     display: flex;
+    position: sticky;
+    z-index: 1200;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
     border-bottom: 1px solid #2a363b;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   }

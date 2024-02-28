@@ -1,7 +1,14 @@
+.navLink {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  font-weight: 700;
+  color: #2a363b;
+}
+
 .link {
     display: inline-block;
-    text-decoration: none;
-    padding: 12px;
+    padding: 6px;
     font-weight: 700;
     color: #2a363b;
   }

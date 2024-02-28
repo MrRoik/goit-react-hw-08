@@ -1,12 +1,11 @@
-import { Helmet } from 'react-helmet';
-import { LoginForm } from '../components/LoginForm/LoginForm';
+import css from './Pages.module.css';
+import LoginForm from '../components/LoginForm/LoginForm';
 
 export default function Login() {
   return (
-    <div>
-      <Helmet>
-        <title>Login</title>
-      </Helmet>
+    <div className={css.containerAuth}>
+      <h2 className={css.titleAuth}>Login</h2>
+
       <LoginForm />
     </div>
   );
