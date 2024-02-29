@@ -27,12 +27,12 @@ export const ModalVerification = ({ isOpen, onClose, id }) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={onClose} style={customStyles} ariaHideApp={false}>
       <div className={css.modalBox}>
-        <h3>Are you sure? Remove?</h3>
+        <h3 className={css.modalTitle}>Are you sure? Remove?</h3>
         <div className={css.btnBox}>
-          <button type="button" className={css.btn} onClick={handleDel}>
+          <button type="button" className={css.btn} id={id} onClick={handleDel}>
             Yes
           </button>
-          <button type="button" className={css.btn}>
+          <button type="button" className={css.btn} id={id} onClick={onClose}>
             No
           </button>
         </div>

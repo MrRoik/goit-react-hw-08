@@ -4,6 +4,9 @@
     flex-direction: column;
     align-items: center;
   }
+  .modalTitle {
+    color: var(--primary-purple-color);
+  }
   .btnBox {
     display: flex;
     gap: 12px;
@@ -35,3 +38,4 @@
     transition: background-color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
     color: rgb(25, 241, 25);
 }
+
