@@ -44,7 +44,7 @@
   font-weight: 700;
     font-size: 40px;
     letter-spacing: 3px;
-    color: var(--primary-purple-color);
+    color: var(--primary-white-color);
     border-bottom: 1px solid;
     margin-bottom: 20px;
     margin-top: 40px;
@@ -66,6 +66,12 @@
   }
 }
 
+@media (prefers-color-scheme: light) {
+  .titleAuth {
+    
+      color: var(--primary-purple-color);
+  }
+}
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     LoginPage
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

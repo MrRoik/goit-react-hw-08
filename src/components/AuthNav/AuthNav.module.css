@@ -12,7 +12,7 @@
     border-right: 1px solid;
     padding: 12px;
     font-weight: 700;
-    color: #2a363b;
+    color: var(--primary-text-color);
   }
   
   .link.active {

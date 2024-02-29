@@ -3,6 +3,10 @@ import { register } from '../../redux/auth/operations';
 import * as Yup from 'yup';
 import css from './RegisterForm.module.css';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Icon } from 'react-icons-kit';
+import { eyeOff } from 'react-icons-kit/feather/eyeOff';
+import { eye } from 'react-icons-kit/feather/eye';
+import { useState } from 'react';
 
 const registerSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -12,6 +16,9 @@ const registerSchema = Yup.object().shape({
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const [password, setPassword] = useState('');
+  const [type, setType] = useState('password');
+  const [icon, setIcon] = useState(eyeOff);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -26,6 +33,16 @@ const RegisterForm = () => {
     form.reset();
   };
 
+  const handleToggle = () => {
+    if (type === 'password') {
+      setIcon(eye);
+      setType('text');
+    } else {
+      setIcon(eyeOff);
+      setType('password');
+    }
+  };
+
   return (
     <Formik
       initialValues={{
@@ -34,25 +51,31 @@ const RegisterForm = () => {
         password: '',
       }}
       validationSchema={registerSchema}
-      onSubmit={values => {
-        // same shape as initial values
-        console.log(values);
-      }}
     >
       <Form className={css.form} onSubmit={handleSubmit} autoComplete="off">
         <label className={css.label}>
-          Username
-          <Field type="text" name="name" />
+          <Field type="text" name="name" className={css.input} placeholder="Username" />
           <ErrorMessage className={css.error} name="name" component="span" />
         </label>
         <label className={css.label}>
-          Email
-          <Field type="email" name="email" />
+          <Field type="email" name="email" className={css.input} placeholder="Email" />
           <ErrorMessage className={css.error} name="email" component="span" />
         </label>
         <label className={css.label}>
-          Password
-          <Field type="password" name="password" />
+          <div className={css.passView}>
+            <input
+              type={type}
+              name="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              autoComplete="current-password"
+              className={css.inputPass}
+              placeholder="Password"
+            />
+            <span className={css.iconEye} onClick={handleToggle}>
+              <Icon icon={icon} size={20} />
+            </span>
+          </div>
           <ErrorMessage className={css.error} name="password" component="span" />
         </label>
         <button type="submit" className={css.btn}>

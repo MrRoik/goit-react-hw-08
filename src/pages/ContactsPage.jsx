@@ -3,7 +3,6 @@ import css from './Pages.module.css';
 import { ErrorMessage } from 'formik';
 import ContactForm from '../components/ContactForm/ContactForm';
 import SearchBox from '../components/SearchBox/SearchBox';
-import TitlePhonebook from '../components/Title/Title';
 import Loader from '../components/Loader/Loader';
 import ContactList from '../components/ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,7 +21,6 @@ const Contacts = () => {
 
   return (
     <div className={css.containerContacts}>
-      <TitlePhonebook />
       <ContactForm />
       <SearchBox />
       {loader && <Loader />}

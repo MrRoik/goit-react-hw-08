@@ -11,6 +11,10 @@
       --primary-prelight-grey-color: #c1c1c2;
       --primary-purple-color: #430477;
       --primary-purple-hover-color: #722caa;
+      --primary-bg-color: #463449;
+      --primary-bg-light-color: #fdf1ff;
+      --primary-text-color: #2d064d;
+      --primary-input-focus-color: #e1c1ff;
   }
   
   a {
@@ -23,8 +27,8 @@
   
   body {
     font-family: var(--primary-font);
-    color: var(--primary-black-color);
-    background: var(--primary-grey-color);
+    color: var(--primary-light-grey-color);
+    background: var(--primary-bg-color);
     display: flex;
     justify-content: center;
     margin: 0;
@@ -59,12 +63,13 @@
     text-align: center;
   }
   
+
   @media (prefers-color-scheme: light) {
-    :root {
-      color: #213547;
+    :root {      
       background-color: var(--primary-white-color);
     }
     body {
+      color: var(--primary-black-color);
       background: var(--primary-white-color);
     }
     a:hover {

@@ -18,11 +18,11 @@ const Contact = ({ item }) => {
           {name}
         </p>
         <p className={css.descList}>
-          <BsFillTelephoneFill className={css.iconContactList} size="18" /> {number}
+          <BsFillTelephoneFill className={css.iconContactList} size="16" /> {number}
         </p>
       </div>
       <button className={css.button} type="button" onClick={handleDel}>
-        Delete <BsFillPersonDashFill />
+        Delete <BsFillPersonDashFill size="14" />
       </button>
     </>
   );
