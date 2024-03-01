@@ -7,6 +7,7 @@ import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const registerSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -29,7 +30,14 @@ const RegisterForm = () => {
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
-    );
+    )
+      .unwrap()
+      .then(() => {
+        toast.success('Registered!');
+      })
+      .catch(() => {
+        toast.error('Something is wrong!');
+      });
     form.reset();
   };
 

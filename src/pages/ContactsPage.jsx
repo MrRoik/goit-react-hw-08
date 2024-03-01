@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from '../redux/contacts/operations';
 import { useEffect } from 'react';
 import { selectIsError, selectIsLoading } from '../redux/contacts/selectors';
+import { Toaster } from 'react-hot-toast';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const Contacts = () => {
       {loader && <Loader />}
       {error && <ErrorMessage />}
       <ContactList />
+      <Toaster position="bottom-center" />
     </div>
   );
 };

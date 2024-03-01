@@ -3,6 +3,7 @@ import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
 import { selectVisibleContacts } from '../../redux/contacts/selectors';
 import deleteContact from '../../redux/contacts/contactsSlice';
+import Checking from '../Checking/Checking';
 
 const ContactList = ({ id }) => {
   const contacts = useSelector(selectVisibleContacts);
@@ -13,13 +14,17 @@ const ContactList = ({ id }) => {
 
   return (
     <ul className={css.itemCard}>
-      {contacts.map(item => {
-        return (
-          <li key={item.id} className={css.listCard}>
-            <Contact onDelete={handleDelItem} item={item} />
-          </li>
-        );
-      })}
+      {contacts.length === 0 ? (
+        <Checking />
+      ) : (
+        contacts.map(item => {
+          return (
+            <li key={item.id} className={css.listCard}>
+              <Contact onDelete={handleDelItem} item={item} />
+            </li>
+          );
+        })
+      )}
     </ul>
   );
 };

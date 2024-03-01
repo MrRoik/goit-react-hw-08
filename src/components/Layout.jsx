@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AppBar } from './AppBar/AppBar';
 import css from './Layout.module.css';
+import Footer from './Footer/Footer';
 
 export const Layout = () => {
   return (
@@ -11,7 +12,8 @@ export const Layout = () => {
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Footer />
+      <Toaster position="bottom-center" reverseOrder={false} />
     </div>
   );
 };

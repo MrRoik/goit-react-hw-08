@@ -7,6 +7,7 @@ import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import { useState } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import toast from 'react-hot-toast';
 
 const registerSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -27,7 +28,14 @@ const LoginForm = () => {
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
-    );
+    )
+      .unwrap()
+      .then(() => {
+        toast.success('Welcome!');
+      })
+      .catch(() => {
+        toast.error('User not found!');
+      });
     form.reset();
   };
 
@@ -44,7 +52,6 @@ const LoginForm = () => {
   return (
     <Formik
       initialValues={{
-        name: '',
         email: '',
         password: '',
       }}
@@ -53,7 +60,7 @@ const LoginForm = () => {
       <Form className={css.form} onSubmit={handleSubmit} autoComplete="off">
         <label className={css.label}>
           <Field type="email" name="email" className={css.input} placeholder="Email" />
-          <ErrorMessage className={css.error} name="password" component="span" />
+          <ErrorMessage className={css.error} name="email" component="span" />
         </label>
         <label className={css.label}>
           <div className={css.passView}>
