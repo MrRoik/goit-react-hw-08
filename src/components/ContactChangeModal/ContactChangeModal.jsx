@@ -5,6 +5,7 @@ import css from '../ContactForm/ContactForm.module.css';
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const customStyles = {
   content: {
@@ -34,15 +35,20 @@ const contactSchema = Yup.object().shape({
 });
 
 const ContactChangeModal = ({ isOpen, onClose, name, number, id }) => {
-  //const nameFieldId = useId();
-  //const numberFieldId = useId();
   const dispatch = useDispatch();
   const [formValues, setFormValues] = useState({});
 
   const handleOnSubmit = (values, action) => {
-    const newFormValues = { ...formValues, ...values };
+    const newFormValues = { ...formValues, ...values, id };
     setFormValues(newFormValues);
-    dispatch(updateContact(newFormValues));
+    dispatch(updateContact(newFormValues))
+      .unwrap()
+      .then(() => {
+        onClose();
+      })
+      .catch(() => {
+        toast.error('Something is wrong');
+      });
     action.resetForm();
   };
 
