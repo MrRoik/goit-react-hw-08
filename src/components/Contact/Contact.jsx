@@ -36,6 +36,8 @@ const Contact = ({ item }) => {
       <ModalVerification isOpen={winModalIsOpen} id={id} onClose={() => setWinModalIsOpen(false)} />
       <ContactChangeModal
         isOpen={winModalUpdateIsOpen}
+        name={name}
+        number={number}
         id={id}
         onClose={() => setWinModalUpdateIsOpen(false)}
       />

@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 import css from '../ContactForm/ContactForm.module.css';
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { useId, useState } from 'react';
-import { BsFillPersonPlusFill } from 'react-icons/bs';
+import { useState } from 'react';
 
 const customStyles = {
   content: {
@@ -34,9 +33,9 @@ const contactSchema = Yup.object().shape({
   number: Yup.string().min(9, 'Too Short!').max(50, 'Too Long!').required('Required'),
 });
 
-const ContactChangeModal = ({ isOpen, onClose }) => {
-  const nameFieldId = useId();
-  const numberFieldId = useId();
+const ContactChangeModal = ({ isOpen, onClose, name, number, id }) => {
+  //const nameFieldId = useId();
+  //const numberFieldId = useId();
   const dispatch = useDispatch();
   const [formValues, setFormValues] = useState({});
 
@@ -48,33 +47,40 @@ const ContactChangeModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onClose} style={customStyles} ariaHideApp={false}>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      style={customStyles}
+      ariaHideApp={false}
+      name={name}
+      number={number}
+    >
       <div className={css.modalBox}>
         <Formik
           initialValues={{
-            name: '',
-            number: '',
+            name,
+            number,
           }}
           validationSchema={contactSchema}
           onSubmit={handleOnSubmit}
         >
           <Form className={css.form} autoComplete="off">
             <div className={css.inputForm}>
-              <label htmlFor={nameFieldId} className={css.labelInput}>
+              <label htmlFor={id} className={css.labelInput}>
                 Name
               </label>
-              <Field type="text" name="name" id={nameFieldId} className={css.inputField} />
+              <Field type="text" name="name" id={id} className={css.inputField} />
               <ErrorMessage className={css.error} name="name" component="span" />
             </div>
             <div className={css.inputForm}>
-              <label htmlFor={numberFieldId} className={css.labelInput}>
+              <label htmlFor={id} className={css.labelInput}>
                 Number
               </label>
-              <Field type="tel" name="number" id={numberFieldId} className={css.inputField} />
+              <Field type="tel" name="number" id={id} className={css.inputField} />
               <ErrorMessage className={css.error} name="number" component="span" />
             </div>
-            <button type="submit" className={css.btn}>
-              Update <BsFillPersonPlusFill size="18" />
+            <button type="submit" className={css.btn} id={id}>
+              Save
             </button>
           </Form>
         </Formik>

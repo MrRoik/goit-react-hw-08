@@ -42,7 +42,13 @@ const ContactForm = () => {
           <label htmlFor={numberFieldId} className={css.labelInput}>
             Number
           </label>
-          <Field type="tel" name="number" id={numberFieldId} className={css.inputField} />
+          <Field
+            type="tel"
+            name="number"
+            id={numberFieldId}
+            className={css.inputField}
+            placeholder={+380994585577}
+          />
           <ErrorMessage className={css.error} name="number" component="span" />
         </div>
         <button type="submit" className={css.btn}>
